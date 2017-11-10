@@ -28,7 +28,7 @@ public class TutorPanel extends JPanel {
 
     // constructor
     public TutorPanel() {
-        // initialize state value to 0 when first ran for initial panel
+        // initialize lesson value to 0 when first ran for initial panel
         lesson = 0;
         
         namePanel.add(nameLabel);
@@ -48,9 +48,8 @@ public class TutorPanel extends JPanel {
         add(namePanel);
     }
 
-    // changeState method to be called whenever the slider is moved in the
-    // Universe.java class
-    public void changeState(int s) {
+    // changeLesson method to be called whenever a different lesson button is pushed
+    public void changeLesson(int s) {
         if (s != lesson) {
             if (lesson == 0) {
                 removeAll();
@@ -67,10 +66,10 @@ public class TutorPanel extends JPanel {
         }
     }
 
-    // updateTutor method to be used every time state changes
+    // updateLesson method to be used every time lesson number changes
     public void updateLesson() {
 
-        // check if state is within proper bounds
+        // check if lesson is within proper bounds
         if (lesson >= 1 && lesson <= 2) {
             // update HTML file target to correct lesson html file
             fileName = "lesson" + lesson + ".html";
@@ -94,7 +93,7 @@ public class TutorPanel extends JPanel {
             }
         }
 
-        // check if this is the first time running the program (state will be
+        // check if this is the first time running the program (lesson will be
         // set to 0)
         if (lesson == 0) {
             editorPane.setText("Lesson Notes Area");
